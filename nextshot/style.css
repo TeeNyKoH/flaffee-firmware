@@ -296,7 +296,8 @@ html.launching .greet, html.launching .hero .lead, html.launching .hero .actions
   .stage { height: auto; display: flex; flex-direction: column; align-items: center; gap: 22px; padding-top: 10px; }
   .stage .glow { display: none; }
   .floatcard { position: relative; left: 0; top: 0; order: 1; width: min(300px, 100%); }
-  .bagwrap { position: relative; left: 0; bottom: 0; order: 2; width: 240px; height: 360px; margin-bottom: 36px; }
+  .bagwrap { position: relative; left: 0; bottom: 0; order: 2; width: 240px; height: 360px; margin-bottom: 78px; }
+  .hint { bottom: -50px; font-size: 11px; }
   .pick { position: relative; left: 0; bottom: 0; order: 3; }
   .shake { position: relative; left: 0; bottom: 0; order: 4; }
   .stage .phone { position: relative; order: 5; right: auto; top: 0; width: min(290px, 78vw); margin-top: 12px; }
