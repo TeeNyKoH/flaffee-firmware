@@ -12,15 +12,31 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 
+<div id="launch" aria-hidden="true">
+  <svg viewBox="0 0 120 150" width="120" height="150" class="glassfx">
+    <defs><clipPath id="gclip"><path d="M26 50 L34 128 Q36 136 46 136 L74 136 Q84 136 86 128 L94 50 Z"/></clipPath></defs>
+    <rect x="42" y="6" width="36" height="14" rx="7" fill="#8a7a6c"/><rect x="56" y="18" width="8" height="26" rx="3" fill="#8a7a6c"/>
+    <g class="glassbody">
+      <path d="M26 50 L34 128 Q36 136 46 136 L74 136 Q84 136 86 128 L94 50 Z" fill="rgba(255,255,255,0.12)"/>
+      <g clip-path="url(#gclip)"><rect class="liq" x="20" y="136" width="80" height="90" fill="#7a4a2c"/><rect class="liq crem" x="20" y="136" width="80" height="5" fill="#e9c18a"/></g>
+      <path d="M26 50 L34 128 Q36 136 46 136 L74 136 Q84 136 86 128 L94 50" fill="none" stroke="#e9c18a" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <circle class="drip" cx="60" cy="50" r="3.5" fill="#7a4a2c"/>
+  </svg>
+  <div class="wave"></div>
+</div>
+<div id="toast" role="status">Five taps. You found the barista card. Your next shot is on us.</div>
+
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="./"><img src="assets/icon-512.png" alt="">Next Shot</a>
+    <a class="brand" href="./"><img id="cup" src="assets/icon-512.png" alt="">Next Shot</a>
     <nav>
       <a href="#features">Features</a>
+      <a href="#try">Try the coach</a>
       <a href="#duo">iPhone Duo</a>
       <a href="#questions">Questions</a>
       <a class="btn small" href="https://testflight.apple.com/join/P4kzc7nD">Early access</a>
@@ -32,6 +48,7 @@
 <section class="hero">
   <div class="wrap">
     <div>
+      <p class="greet"><span class="sun"></span><span id="greet">Pulling a shot?</span></p>
       <h1>Dial in better coffee, every shot.</h1>
       <p class="lead">A coffee journal for people who like to improve the next cup. Photograph your bags, log every brew, and let the coach tell you which way to turn the grinder.</p>
       <div class="actions">
@@ -92,6 +109,38 @@
       <p>Cups this week, your streak, your busiest day. Your flavour profile on a wheel, and every origin on a globe. Search finds any bean, brew or roaster.</p>
     </div>
     <div class="shot"><div class="phone"><img src="assets/stats.png" width="1100" height="2392" loading="lazy" alt="The Brewing page showing cups per week"></div></div>
+  </div>
+</section>
+
+<section class="try" id="try">
+  <div class="narrow">
+    <div class="kicker">Try the coach</div>
+    <h2>Pull a shot. See what it says.</h2>
+    <p class="sub">Drag the time. Tap a star. This is the same advice the app gives after every shot, on a grinder set to 9.0.</p>
+    <div id="demo" class="demo">
+      <div class="dial">
+        <svg viewBox="0 0 200 200" width="220" height="220" aria-hidden="true">
+          <defs><clipPath id="dclip"><circle cx="100" cy="100" r="72"/></clipPath></defs>
+          <circle cx="100" cy="100" r="88" fill="none" stroke="var(--line)" stroke-width="12"/>
+          <circle cx="100" cy="100" r="72" fill="var(--card)"/>
+          <g clip-path="url(#dclip)"><rect id="fill" x="20" y="200" width="160" height="200" fill="#3a2318" opacity="0.88"/><rect x="20" y="0" width="0" height="0"/></g>
+          <circle id="ring" cx="100" cy="100" r="88" fill="none" stroke-width="12" stroke-linecap="round" transform="rotate(-90 100 100)"/>
+        </svg>
+        <div class="readout"><b id="secs">27</b><span>s</span></div>
+      </div>
+      <div class="panel">
+        <label class="lbl" for="time">Shot time</label>
+        <input id="time" type="range" min="12" max="45" step="1" value="18" aria-label="Shot time in seconds">
+        <div class="ticks"><span>12</span><span>24</span><span>30</span><span>45</span></div>
+        <div class="lbl">How did it taste?</div>
+        <div class="stars" role="group" aria-label="Rating"><button class="star" aria-label="1 star">&#9733;</button><button class="star" aria-label="2 stars">&#9733;</button><button class="star" aria-label="3 stars">&#9733;</button><button class="star" aria-label="4 stars">&#9733;</button><button class="star" aria-label="5 stars">&#9733;</button></div>
+        <div class="coach">
+          <div class="lbl">Coach &middot; next shot</div>
+          <div class="movewrap"><strong id="move" class="warn">Grind finer</strong><code id="grind">9.0 &rarr; 8.0</code></div>
+          <p id="why"></p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -172,5 +221,6 @@
   </div>
 </footer>
 
+<script src="fun.js?v=3" defer></script>
 </body>
 </html>
