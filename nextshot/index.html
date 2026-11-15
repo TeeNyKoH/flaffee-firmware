@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 
@@ -33,7 +33,7 @@
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="./"><img id="cup" src="assets/icon-512.png" alt="">Next Shot</a>
+    <a class="brand" href="./"><span class="cupwrap"><img id="cup" src="assets/icon-512.png" alt=""><span class="steam" aria-hidden="true"><i></i><i></i><i></i></span></span>Next Shot</a>
     <nav>
       <a href="#features">Features</a>
       <a href="#try">Try the coach</a>
@@ -49,7 +49,7 @@
   <div class="wrap">
     <div>
       <p class="greet"><span class="sun"></span><span id="greet">Pulling a shot?</span></p>
-      <h1>Dial in better coffee, every shot.</h1>
+      <h1><span class="ln">Dial in</span> <span class="ln">better coffee,</span> <span class="ln">every <span class="liq">shot.</span></span></h1>
       <p class="lead">A coffee journal for people who like to improve the next cup. Photograph your bags, log every brew, and let the coach tell you which way to turn the grinder.</p>
       <div class="actions">
         <span class="store soon" role="img" aria-label="App Store, coming soon"><span class="store-top">Download on the</span><span class="store-main">App Store</span><span class="chip">Coming soon</span></span>
@@ -57,11 +57,26 @@
       </div>
       <p class="note">The App Store version is coming soon. Early access on TestFlight has the newest features today. Free to try. iPhone and iPhone Duo, iOS 26.1 or later.</p>
     </div>
-    <div class="shot">
+    <div class="stage" id="stage">
+      <div class="glow" aria-hidden="true"></div>
       <div class="phone"><img src="assets/home.png" width="1100" height="2392" alt="The Next Shot home screen, with a bag of coffee and what is running low"></div>
+      <div class="floatcard" id="fc" aria-hidden="true">
+        <div class="fc-top"><span class="fc-ring"><svg viewBox="0 0 44 44" width="44" height="44"><circle cx="22" cy="22" r="18" fill="none" stroke="var(--line)" stroke-width="5"/><circle id="fcring" cx="22" cy="22" r="18" fill="none" stroke-width="5" stroke-linecap="round" transform="rotate(-90 22 22)"/></svg><b id="fcsecs">0</b></span><span class="fc-lbl">Coach &middot; next shot</span></div>
+        <div class="fc-move"><strong id="fcmove">&nbsp;</strong><code id="fcgrind"></code></div>
+        <p id="fcwhy"></p>
+      </div>
+      <div class="bagwrap" id="bagwrap" role="group" aria-label="A coffee bag you can spin. Drag to turn it, double-tap to flip it.">
+        <div class="bag3d" id="bag3d"></div>
+        <div class="bagshadow" id="bagshadow"></div>
+        <div class="hint" id="hint">Drag to spin &middot; double-tap to flip</div>
+      </div>
+      <div class="pick" id="pick" role="group" aria-label="Choose a bag"></div>
+      <button class="shake" id="shake" type="button">Shake it</button>
     </div>
   </div>
 </section>
+
+<div class="belt" aria-hidden="true"><div class="track" id="track"></div></div>
 
 <div id="features"></div>
 
@@ -222,5 +237,6 @@
 </footer>
 
 <script src="fun.js?v=3" defer></script>
+<script src="bag3d.js?v=1" defer></script>
 </body>
 </html>
