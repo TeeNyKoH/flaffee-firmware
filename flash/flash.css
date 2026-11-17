@@ -1,5 +1,6 @@
 /* Shot timer setup page. Builds on ../nextshot/style.css (same colours, type, buttons, cards). */
 :root { --stick: #f26b2b; --stick-dark: #c9531c; --screen: #101010; --ok: #3f9d63; }
+html, body { overflow-x: clip; }
 
 .btn.ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 2px var(--line); }
 .btn.huge { font-size: 22px; padding: 20px 34px; border: 0; cursor: pointer; font-family: inherit; font-weight: 800; }
