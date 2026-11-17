@@ -1,5 +1,11 @@
 // Shot timer setup page: checklist, browser check, step reveal, OS tabs, copy buttons, help picker, confetti.
 (() => {
+  // Always open at the top: no jumping back to where you were, or to a section left in the address (#browser)
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+  scrollTo(0, 0);
+  addEventListener('load', () => scrollTo(0, 0));
+
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const store = {
