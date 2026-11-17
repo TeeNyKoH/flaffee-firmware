@@ -88,7 +88,7 @@ input:focus-visible + .tick { outline: 3px solid var(--accent); outline-offset: 
 .step.seen .num { background: var(--accent); color: var(--on-accent); }
 .step h3 { margin: 8px 0 6px; font-size: 24px; }
 .step p { margin: 0 0 12px; color: var(--ink2); }
-.step .hint { font-size: 15px; }
+.step .fhint { font-size: 15px; }
 
 /* Small step pictures */
 .anim { width: 140px; height: 120px; position: relative; }
@@ -115,7 +115,7 @@ input:focus-visible + .tick { outline: 3px solid var(--accent); outline-offset: 
 .portlist { grid-column: 1 / -1; background: var(--card); border: 1px solid var(--line); border-radius: 0 12px 12px 12px; padding: 8px; display: none; }
 .portlist.on { display: block; }
 .portrow { padding: 10px 12px; border-radius: 8px; font: 14px ui-monospace, monospace; color: var(--ink2); display: flex; justify-content: space-between; gap: 10px; }
-.portrow.pick { background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--ink); animation: glow 2s ease-in-out infinite; }
+.portrow.portpick { background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--ink); animation: glow 2s ease-in-out infinite; }
 .portrow em { font: 800 12px system-ui; color: var(--accent); font-style: normal; white-space: nowrap; }
 @keyframes glow { 50% { box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 40%, transparent); } }
 

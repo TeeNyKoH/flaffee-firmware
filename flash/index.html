@@ -9,7 +9,7 @@
 <link rel="icon" href="../nextshot/assets/favicon.png">
 <link rel="apple-touch-icon" href="../nextshot/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="../nextshot/style.css?v=6">
-<link rel="stylesheet" href="flash.css?v=2">
+<link rel="stylesheet" href="flash.css?v=3">
 <script type="module" src="https://unpkg.com/esp-web-tools@10.0.1/dist/web/install-button.js?module"></script>
 </head>
 <body>
@@ -134,11 +134,11 @@
           <div class="ports">
             <div class="porttab" data-os="mac">Mac</div><div class="porttab" data-os="win">Windows</div>
             <div class="portlist" data-os="mac">
-              <div class="portrow pick">USB Single Serial (cu.usbserial-…)<em>Pick this</em></div>
+              <div class="portrow portpick">USB Single Serial (cu.usbserial-…)<em>Pick this</em></div>
               <div class="portrow">cu.Bluetooth-Incoming-Port</div>
             </div>
             <div class="portlist" data-os="win">
-              <div class="portrow pick">USB-Enhanced-SERIAL CH9102 (COM3)<em>Pick this</em></div>
+              <div class="portrow portpick">USB-Enhanced-SERIAL CH9102 (COM3)<em>Pick this</em></div>
               <div class="portrow">Communications Port (COM1)</div>
             </div>
           </div>
@@ -151,7 +151,7 @@
               <span slot="not-allowed" class="unsupported">Flashing needs a secure page. Open <b>https://teenykoh.github.io/flaffee-firmware/flash/</b> directly.</span>
             </esp-web-install-button>
           </div>
-          <p class="hint">No port in the list? Jump to <a href="#help" data-fix="noport">"I don't see a port"</a>.</p>
+          <p class="fhint">No port in the list? Jump to <a href="#help" data-fix="noport">"I don't see a port"</a>.</p>
         </div>
       </li>
       <li class="step">
