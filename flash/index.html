@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Set up your shot timer: Next Shot</title>
+<meta name="description" content="Put the Brew Tracker shot timer software on your M5StickC Plus in about a minute, straight from your browser. Step by step, with pictures.">
+<link rel="icon" href="../nextshot/assets/favicon.png">
+<link rel="apple-touch-icon" href="../nextshot/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../nextshot/style.css?v=6">
+<link rel="stylesheet" href="flash.css?v=1">
+<script type="module" src="https://unpkg.com/esp-web-tools@10.0.1/dist/web/install-button.js?module"></script>
+</head>
+<body>
+
+<div id="toast" role="status"></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../nextshot/"><span class="cupwrap"><img src="../nextshot/assets/icon-512.png" alt=""></span>Next Shot</a>
+    <nav>
+      <a href="#ready">Before you start</a>
+      <a href="#browser">Flash</a>
+      <a href="#help">Help</a>
+      <a href="#downloads">Downloads</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="rail" aria-label="Progress">
+  <a href="#top" data-for="top"><i></i><span>Start</span></a>
+  <a href="#ready" data-for="ready"><i></i><span>Check</span></a>
+  <a href="#browser" data-for="browser"><i></i><span>Flash</span></a>
+  <a href="#pair" data-for="pair"><i></i><span>Pair</span></a>
+  <a href="#help" data-for="help"><i></i><span>Help</span></a>
+  <a href="#downloads" data-for="downloads"><i></i><span>Files</span></a>
+</nav>
+
+<main>
+<section class="hero fhero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="kicker">Shot timer setup</p>
+      <h1>Wake up your<br><span class="liq">shot timer.</span></h1>
+      <p class="lead">Your stick arrives blank. Put the Brew Tracker software on it in about a minute, straight from this page. No apps to install, no settings to get right.</p>
+      <div class="actions">
+        <a class="btn" href="#browser">Flash in my browser · 1 min</a>
+        <a class="btn ghost" href="#manual">The manual way · 10 min</a>
+      </div>
+      <p class="note">You'll get shot timer <b id="fwv">2.99</b>. You only do this once: after this, updates come over Bluetooth from the Brew Tracker app.</p>
+    </div>
+    <div class="stickstage">
+      <div class="stick" id="heroStick" aria-hidden="true">
+        <div class="cable"></div>
+        <div class="body">
+          <div class="side-btn"></div>
+          <div class="screen"><div class="scr" data-scr>READY</div><div class="scr-sub" data-scr-sub>00:00</div></div>
+          <div class="logo">M5</div>
+          <div class="front-btn"></div>
+        </div>
+      </div>
+      <div class="shotglass" aria-hidden="true"><div class="fill"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ready" id="ready">
+  <div class="narrow">
+    <p class="kicker">Step 0</p>
+    <h2>Before you start</h2>
+    <p class="sub">Tick these off. Your ticks are saved on this computer, so you can come back.</p>
+
+    <ul class="checklist" id="checklist">
+      <li>
+        <label><input type="checkbox" data-key="computer"><span class="tick"></span>
+        <span><b>A Mac or Windows computer.</b> Phones and iPads can't flash the stick. You can read this guide on your phone and flash on the computer.</span></label>
+      </li>
+      <li>
+        <label><input type="checkbox" data-key="browser"><span class="tick"></span>
+        <span><b>Chrome or Edge.</b> <span class="browsercheck" id="browserCheck">Checking your browser…</span></span></label>
+      </li>
+      <li>
+        <label><input type="checkbox" data-key="cable"><span class="tick"></span>
+        <span><b>A USB-C cable that carries data.</b> The one in the box works. Many phone charging cables only carry power, and the computer won't see the stick through them.</span></label>
+        <div class="cables" aria-hidden="true">
+          <div class="cablecard ok"><div class="wire"><i class="dot p"></i><i class="dot d"></i><i class="dot d2"></i></div><span>Data cable: power <em>and</em> data flow</span></div>
+          <div class="cablecard bad"><div class="wire"><i class="dot p"></i></div><span>Charge-only: power only, nothing to talk with</span></div>
+        </div>
+      </li>
+      <li>
+        <label><input type="checkbox" data-key="stick"><span class="tick"></span>
+        <span><b>Your M5StickC Plus,</b> charged a little. It's fine if the screen is blank or shows a demo.</span></label>
+      </li>
+    </ul>
+    <div class="meter"><div id="meterFill"></div></div>
+    <p class="meterText" id="meterText">0 of 4 ready</p>
+  </div>
+</section>
+
+<section class="steps" id="browser">
+  <div class="narrow">
+    <p class="kicker">The 1-minute way</p>
+    <h2>Flash in your browser</h2>
+    <p class="sub">Follow along. Each step shows what you should see.</p>
+
+    <ol class="stepper">
+      <li class="step" data-scr="BLANK" data-sub="">
+        <div class="num">1</div>
+        <div class="txt">
+          <h3>Turn the stick on</h3>
+          <p>Press and hold the <b>small button on the left side</b> for 2 seconds until the screen lights up. A blank or demo screen is fine.</p>
+        </div>
+        <div class="anim press" aria-hidden="true">
+          <div class="mini"><div class="mscreen"></div><div class="mside"></div></div><div class="finger"></div>
+        </div>
+      </li>
+      <li class="step">
+        <div class="num">2</div>
+        <div class="txt">
+          <h3>Plug it into your computer</h3>
+          <p>Use the USB-C port on the bottom of the stick. Plug straight into the computer if you can, not through a hub.</p>
+        </div>
+        <div class="anim plug" aria-hidden="true">
+          <div class="laptop"><div class="port"></div></div><div class="usb"></div><div class="mini small"><div class="mscreen"></div></div>
+        </div>
+      </li>
+      <li class="step big">
+        <div class="num">3</div>
+        <div class="txt">
+          <h3>Press Install</h3>
+          <p>A window opens listing ports. Pick the one that looks like the stick, then press <b>Connect</b>:</p>
+          <div class="ports">
+            <div class="porttab" data-os="mac">Mac</div><div class="porttab" data-os="win">Windows</div>
+            <div class="portlist" data-os="mac">
+              <div class="portrow pick">USB Single Serial (cu.usbserial-…)<em>Pick this</em></div>
+              <div class="portrow">cu.Bluetooth-Incoming-Port</div>
+            </div>
+            <div class="portlist" data-os="win">
+              <div class="portrow pick">USB-Enhanced-SERIAL CH9102 (COM3)<em>Pick this</em></div>
+              <div class="portrow">Communications Port (COM1)</div>
+            </div>
+          </div>
+          <p>Then choose <b>Install Brew Tracker Shot Timer</b>, say yes to erasing the stick, and wait. Keep the cable in until it says it's done.</p>
+
+          <div class="installbox" id="installBox">
+            <esp-web-install-button manifest="manifest.json">
+              <button slot="activate" class="btn huge">Install shot timer 2.99</button>
+              <span slot="unsupported" class="unsupported">This browser can't flash. Open this page in <b>Chrome</b> or <b>Edge</b> on a computer, or use <a href="#manual">the manual way</a>.</span>
+              <span slot="not-allowed" class="unsupported">Flashing needs a secure page. Open <b>https://teenykoh.github.io/flaffee-firmware/flash/</b> directly.</span>
+            </esp-web-install-button>
+          </div>
+          <p class="hint">No port in the list? Jump to <a href="#help" data-fix="noport">"I don't see a port"</a>.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="num">4</div>
+        <div class="txt">
+          <h3>Watch it fill up</h3>
+          <p>Writing takes about a minute. The stick restarts by itself at the end.</p>
+          <div class="fakeprog" aria-hidden="true"><div></div><span>Writing… 64%</span></div>
+        </div>
+      </li>
+      <li class="step">
+        <div class="num">5</div>
+        <div class="txt">
+          <h3>Say hello</h3>
+          <p>The stick shows a coffee cup, then <b>READY</b> and <b>00:00</b>. That's it. Unplug it whenever you like.</p>
+          <button class="btn" id="itWorked">It shows READY!</button>
+        </div>
+        <div class="anim boot" aria-hidden="true">
+          <div class="mini"><div class="mscreen"><span class="cupico"></span><span class="rdy">READY</span></div></div>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="pair dark" id="pair">
+  <div class="narrow">
+    <p class="kicker">Last step</p>
+    <h2>Pair with Brew Tracker</h2>
+    <ol class="plain">
+      <li>Open <b>Brew Tracker</b> on your iPhone and allow Bluetooth when it asks.</li>
+      <li>Check <b>Use M5 shot timer</b> is on in Settings (it is on unless you turned it off).</li>
+      <li>Keep the stick close and switched on, and tap <b>Connect shot timer</b> at the bottom of the screen.</li>
+      <li>Pull a shot. The timer starts by itself when the pump vibrates and sends the time to the app.</li>
+    </ol>
+    <p>From now on, new versions arrive through the app, over Bluetooth. You won't need this page again unless something goes wrong.</p>
+  </div>
+</section>
+
+<section class="steps manual" id="manual">
+  <div class="narrow">
+    <p class="kicker">Using Safari or Firefox, or the browser way failed?</p>
+    <h2>The manual way</h2>
+    <p class="sub">This uses esptool, the official tool for these chips, typed into the Terminal. Copy and paste each line; you don't need to know any code.</p>
+    <div class="ostabs">
+      <button class="ostab" data-os="mac">Mac</button><button class="ostab" data-os="win">Windows</button>
+    </div>
+
+    <ol class="stepper">
+      <li class="step"><div class="num">1</div><div class="txt">
+        <h3>Download the firmware file</h3>
+        <p>Save it to your <b>Downloads</b> folder. Don't open it.</p>
+        <a class="btn" href="firmware/shot_timer-2.99.merged.bin" download>Download shot_timer-2.99.merged.bin</a>
+      </div></li>
+      <li class="step"><div class="num">2</div><div class="txt">
+        <h3>Get Python</h3>
+        <p data-os="mac">Most Macs already have it. If the next step says <i>command not found</i>, install it from <a href="https://www.python.org/downloads/" target="_blank" rel="noopener">python.org</a>.</p>
+        <p data-os="win">Install it from <a href="https://www.python.org/downloads/" target="_blank" rel="noopener">python.org</a>. On the first screen of the installer, tick <b>Add python.exe to PATH</b>.</p>
+      </div></li>
+      <li class="step"><div class="num">3</div><div class="txt">
+        <h3>Open the Terminal</h3>
+        <p data-os="mac">Press <kbd>⌘</kbd> <kbd>Space</kbd>, type <b>Terminal</b>, press <kbd>Return</kbd>.</p>
+        <p data-os="win">Press the <kbd>Windows</kbd> key, type <b>PowerShell</b>, press <kbd>Enter</kbd>.</p>
+      </div></li>
+      <li class="step"><div class="num">4</div><div class="txt">
+        <h3>Install esptool</h3>
+        <pre class="cmd" data-os="mac"><code>python3 -m pip install --user esptool</code><button class="copy">Copy</button></pre>
+        <pre class="cmd" data-os="win"><code>py -m pip install esptool</code><button class="copy">Copy</button></pre>
+      </div></li>
+      <li class="step"><div class="num">5</div><div class="txt">
+        <h3>Plug in the stick and flash</h3>
+        <p>With the stick on and plugged in, paste this. It finds the stick by itself.</p>
+        <pre class="cmd" data-os="mac"><code>cd ~/Downloads &amp;&amp; python3 -m esptool --chip esp32 --baud 921600 write_flash 0x0 shot_timer-2.99.merged.bin</code><button class="copy">Copy</button></pre>
+        <pre class="cmd" data-os="win"><code>cd $HOME\Downloads; py -m esptool --chip esp32 --baud 921600 write_flash 0x0 shot_timer-2.99.merged.bin</code><button class="copy">Copy</button></pre>
+        <p>You'll see <i>Writing at 0x…</i> lines, then <b>Hash of data verified</b>. Press the side button to restart the stick.</p>
+      </div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="faq help" id="help">
+  <div class="narrow">
+    <h2>What do you see?</h2>
+    <p class="sub">Tap what's happening and we'll tell you what to try.</p>
+    <div class="picker" id="picker">
+      <button data-fix="noport">I don't see a port</button>
+      <button data-fix="connect">"Failed to connect"</button>
+      <button data-fix="stuck">It stopped part way</button>
+      <button data-fix="black">The screen stays black</button>
+      <button data-fix="nobt">The app can't find it</button>
+      <button data-fix="browser">No Install button</button>
+    </div>
+    <div class="fixes">
+      <div class="fix" data-fix="noport"><h3>No port in the list</h3><ol>
+        <li>Swap the cable. A charge-only cable is the cause nine times out of ten.</li>
+        <li>Make sure the stick is on (hold the side button for 2 seconds).</li>
+        <li>Plug straight into the computer, not a hub or a monitor.</li>
+        <li>Windows, or a Mac that still shows nothing: install the USB driver from <a href="https://docs.m5stack.com/en/download" target="_blank" rel="noopener">M5Stack's download page</a> (look for <b>CH9102</b>), restart the computer and try again.</li></ol></div>
+      <div class="fix" data-fix="connect"><h3>"Failed to connect" or "Timed out"</h3><ol>
+        <li>Close the Arduino IDE, Cura, or anything else that may be using the port.</li>
+        <li>Unplug the stick, wait 5 seconds, plug it back in and press Install again.</li>
+        <li>Still failing: hold the side button for 6 seconds to turn the stick fully off, then plug it in. It starts in a state that's easier to talk to.</li></ol></div>
+      <div class="fix" data-fix="stuck"><h3>It stopped part way</h3><ol>
+        <li>Nothing is broken: the stick can always be flashed again.</li>
+        <li>Unplug, plug back in and press Install again. Choose to erase when asked.</li>
+        <li>Try a different USB port, or the manual way with <code>--baud 115200</code> in place of <code>921600</code> (slower, steadier).</li></ol></div>
+      <div class="fix" data-fix="black"><h3>The screen stays black afterwards</h3><ol>
+        <li>Press the side button once. The stick may simply be asleep.</li>
+        <li>Charge it for 10 minutes on the cable, then hold the side button for 2 seconds.</li>
+        <li>Flash again and choose to erase the stick when asked.</li></ol></div>
+      <div class="fix" data-fix="nobt"><h3>The app can't find the stick</h3><ol>
+        <li>Check the stick shows <b>READY</b>.</li>
+        <li>On the iPhone: Settings, Brew Tracker, and allow <b>Bluetooth</b>.</li>
+        <li>Keep the stick within a metre or two while pairing.</li>
+        <li>Force-close Brew Tracker and open it again.</li></ol></div>
+      <div class="fix" data-fix="browser"><h3>There's no Install button</h3><ol>
+        <li>Flashing in the browser works in <b>Chrome</b> and <b>Edge</b> on a Mac or Windows computer.</li>
+        <li>Safari, Firefox, phones and iPads can't do it. Use Chrome, or <a href="#manual">the manual way</a>.</li></ol></div>
+    </div>
+    <p class="note">Still stuck? Email <a href="../nextshot/support.html">support</a> with a photo of the screen and what you tried.</p>
+  </div>
+</section>
+
+<section class="downloads" id="downloads">
+  <div class="narrow">
+    <h2>Downloads</h2>
+    <div class="dlgrid">
+      <a class="dl" href="firmware/shot_timer-2.99.merged.bin" download><b>Shot timer 2.99</b><span>Firmware file, 4 MB. Flash at 0x0.</span></a>
+      <a class="dl" href="https://docs.m5stack.com/en/download" target="_blank" rel="noopener"><b>USB driver (CH9102)</b><span>Only if no port shows up. From M5Stack.</span></a>
+      <a class="dl" href="https://www.google.com/chrome/" target="_blank" rel="noopener"><b>Google Chrome</b><span>For the 1-minute browser way.</span></a>
+      <a class="dl" href="https://www.python.org/downloads/" target="_blank" rel="noopener"><b>Python</b><span>For the manual way.</span></a>
+      <a class="dl" href="https://www.arduino.cc/en/software" target="_blank" rel="noopener"><b>Arduino IDE</b><span>Not needed to flash. Only for tinkerers.</span></a>
+    </div>
+    <p class="note sha">SHA-256: <code id="sha">cd62d6849b446671d3b103fd20e7ccb0d547025d5a106a07c8de0990e955ff9d</code> <button class="copy small" data-copy="#sha">Copy</button></p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Next Shot: Brew Tracker</span>
+    <span><a href="../nextshot/">Home</a><a href="../nextshot/privacy.html">Privacy</a><a href="../nextshot/support.html">Support</a></span>
+  </div>
+</footer>
+
+<script src="flash.js?v=1"></script>
+</body>
+</html>

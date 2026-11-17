@@ -1,0 +1,13 @@
+{
+  "name": "Brew Tracker Shot Timer",
+  "version": "2.99",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        { "path": "firmware/shot_timer-2.99.merged.bin", "offset": 0 }
+      ]
+    }
+  ]
+}
