@@ -1,0 +1,123 @@
+/* M5 explainer page. Builds on ../style.css and ../m5.css. Band colours match the stick. */
+:root { --stick: #f26b2b; --stick-dark: #c9531c; --screen: #101010; --band-y: #f2c230; --band-g: #5fd07a; --band-r: #ef5b4c; }
+.m5-strip { background: var(--espresso); color: var(--milk); text-align: center; padding: 10px 16px; font-size: 15px; font-weight: 600; }
+.m5-strip b { color: var(--crema); }
+.m5-strip button { font: inherit; font-weight: 800; color: var(--crema); background: none; border: 0; text-decoration: underline; cursor: pointer; padding: 0 0 0 6px; }
+
+.m5-hero { padding: 40px 0 70px; }
+.m5-hero .wrap { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 40px; align-items: center; }
+.m5-hero h1 { font-size: clamp(42px, 6vw, 72px); line-height: 1.02; letter-spacing: -0.02em; margin: 0 0 18px; font-weight: 800; }
+.m5-hero h1 em { font-style: normal; color: var(--accent); }
+.lead { color: var(--ink2); font-size: 21px; margin: 0 0 24px; }
+
+/* The stick, drawn in CSS */
+.m5-stage { position: relative; display: grid; place-items: center; min-height: 420px; }
+.m5-stage::before { content: ""; position: absolute; width: 340px; height: 340px; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--accent) 28%, transparent), transparent 68%); }
+.mstick { position: relative; width: 150px; transform: rotate(-4deg); }
+.mstick .body { position: relative; border-radius: 26px; padding: 16px 14px 16px; background: linear-gradient(160deg, var(--stick), var(--stick-dark)); box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.5); }
+.mstick .side { position: absolute; left: -6px; top: 84px; width: 6px; height: 40px; border-radius: 3px 0 0 3px; background: #2b2b2b; }
+.mstick .screen { height: 168px; border-radius: 10px; background: var(--screen); color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 6px; transition: background 0.4s; }
+.mstick .lbl { font: 800 14px ui-monospace, "SF Mono", monospace; letter-spacing: 0.1em; color: #9aa; }
+.mstick .big { font: 800 42px ui-monospace, "SF Mono", monospace; line-height: 1.1; margin-top: 4px; transition: color 0.25s; }
+.mstick .sub { font: 700 13px ui-monospace, "SF Mono", monospace; margin-top: 6px; color: #cfc6b8; min-height: 1.3em; }
+.mstick .logo { text-align: center; color: rgba(255, 255, 255, 0.9); font-weight: 900; font-size: 15px; margin: 12px 0 8px; }
+.mstick .front { width: 60px; height: 34px; margin: 0 auto; border-radius: 11px; background: #2b2b2b; box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.4); }
+.mstick .usb { position: absolute; left: 50%; bottom: -8px; width: 34px; height: 8px; margin-left: -17px; border-radius: 0 0 5px 5px; background: #2b2b2b; }
+.mstick[data-state="BREWING"] .screen::before { content: ""; position: absolute; }
+.cuprow { display: flex; gap: 4px; margin-top: 8px; min-height: 8px; }
+.cuprow i { width: 8px; height: 8px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; background: #7a4a2c; }
+.m5-cap { text-align: center; font-size: 13px; color: var(--ink2); margin-top: 14px; }
+
+.m5-sec { padding: 76px 0; }
+.m5-sec .head { max-width: 720px; margin: 0 0 34px; }
+.m5-sec h2 { font-size: clamp(32px, 4.4vw, 48px); line-height: 1.05; letter-spacing: -0.015em; margin: 0 0 14px; font-weight: 800; }
+.m5-sec .head p, .m5-sec p.sub { color: var(--ink2); font-size: 20px; margin: 0 0 10px; }
+section.dark.m5-sec .head p, section.dark.m5-sec p.sub { color: rgba(243, 230, 200, 0.78); }
+.m5-sec h3 { font-size: 21px; margin: 0 0 6px; font-weight: 800; }
+.m5-two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+.m5-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+.m5-card { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 22px; }
+.m5-card p { margin: 0; color: var(--ink2); font-size: 17px; }
+section.dark .m5-card { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.12); }
+section.dark .m5-card p { color: rgba(243, 230, 200, 0.78); }
+.m5-list { margin: 0; padding-left: 22px; color: var(--ink2); font-size: 19px; }
+.m5-list li { margin-bottom: 8px; }
+section.dark .m5-list { color: rgba(243, 230, 200, 0.82); }
+.m5-note { border-left: 4px solid var(--accent); padding: 4px 0 4px 16px; color: var(--ink2); font-size: 17px; margin: 18px 0 0; }
+section.dark .m5-note { color: rgba(243, 230, 200, 0.82); border-color: var(--crema); }
+
+/* Diagram figures */
+.m5-fig { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 18px; }
+section.dark .m5-fig { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.12); }
+.m5-fig svg { width: 100%; height: auto; display: block; }
+.m5-fig figcaption { font-size: 14px; color: var(--ink2); margin-top: 8px; }
+section.dark .m5-fig figcaption { color: rgba(243, 230, 200, 0.7); }
+.svg-ink { fill: var(--ink); } .svg-ink2 { fill: var(--ink2); }
+section.dark .svg-ink { fill: var(--milk); } section.dark .svg-ink2 { fill: rgba(243, 230, 200, 0.7); }
+.svg-line { stroke: var(--accent); fill: none; stroke-width: 2.5; stroke-linejoin: round; }
+.svg-box { fill: none; stroke: var(--ink2); stroke-width: 1.5; stroke-dasharray: 5 4; }
+section.dark .svg-box { stroke: rgba(243, 230, 200, 0.6); }
+
+/* Four stick screens */
+.m5-screens { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; }
+.m5-mini { background: var(--screen); color: #fff; border-radius: 16px; padding: 18px 14px; text-align: center; min-height: 150px; display: flex; flex-direction: column; justify-content: center; }
+.m5-mini .lbl { font: 800 13px ui-monospace, "SF Mono", monospace; letter-spacing: 0.1em; color: #9aa; }
+.m5-mini .big { font: 800 34px ui-monospace, "SF Mono", monospace; margin: 4px 0; }
+.m5-mini .sub { font: 700 13px ui-monospace, "SF Mono", monospace; color: #cfc6b8; }
+.m5-screenwrap h3 { margin-top: 12px; }
+.m5-screenwrap p { margin: 0; color: var(--ink2); font-size: 16px; }
+.bands { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.bands span { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 700; color: var(--ink2); }
+.bands i { width: 14px; height: 14px; border-radius: 50%; display: inline-block; }
+
+/* Phone mockups */
+.m5-phones { display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; }
+.m5-ph { width: 250px; border-radius: 34px; padding: 14px; background: #0c0a08; box-shadow: var(--shadow); color: #f5efe6; }
+.m5-ph .scr { border-radius: 22px; background: linear-gradient(170deg, #2b2220, #15110e); padding: 16px 14px; min-height: 290px; }
+.m5-ph .clock { text-align: center; font-weight: 700; font-size: 44px; margin: 6px 0 16px; letter-spacing: -0.02em; }
+.m5-la { background: rgba(255, 255, 255, 0.12); border-radius: 18px; padding: 12px 14px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.m5-la small { display: block; color: rgba(245, 239, 230, 0.7); font-size: 12px; }
+.m5-la b { font: 800 26px ui-monospace, "SF Mono", monospace; }
+.m5-ph .row { background: rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 10px 12px; margin-top: 10px; font-size: 14px; display: flex; justify-content: space-between; gap: 10px; }
+.m5-ph .row b { font-family: ui-monospace, "SF Mono", monospace; }
+.m5-ph .lab { font: 800 11px ui-monospace, "SF Mono", monospace; letter-spacing: 0.1em; color: #b8aa98; margin: 12px 0 6px; }
+.m5-ph .m5chip { display: inline-block; background: var(--accent); color: #fff; border-radius: 999px; padding: 4px 12px; font-weight: 800; font-size: 13px; margin-top: 8px; }
+.m5-phcap { text-align: center; font-size: 14px; color: var(--ink2); margin-top: 10px; max-width: 250px; }
+
+/* Journey steps */
+.m5-steps { counter-reset: s; list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.m5-steps li { counter-increment: s; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px 20px 18px 70px; position: relative; }
+.m5-steps li::before { content: counter(s); position: absolute; left: 18px; top: 16px; width: 38px; height: 38px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 800; display: grid; place-items: center; }
+.m5-steps h3 { margin: 0 0 4px; }
+.m5-steps p { margin: 0; color: var(--ink2); font-size: 17px; }
+
+/* Comparison table */
+.m5-tablewrap { overflow-x: auto; }
+table.m5-tbl { width: 100%; border-collapse: collapse; font-size: 17px; }
+.m5-tbl th, .m5-tbl td { text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.m5-tbl thead th { font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink2); }
+.m5-tbl td:first-child { font-weight: 800; }
+.m5-tbl td:last-child { color: var(--accent); font-weight: 700; }
+.m5-tbl td:nth-child(2) { color: var(--ink2); }
+
+/* Buying guide */
+.m5-good { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.m5-yes, .m5-no { border-radius: 20px; padding: 22px; border: 1px solid var(--line); background: var(--card); }
+.m5-yes { border-top: 5px solid var(--band-g); } .m5-no { border-top: 5px solid var(--band-r); }
+.m5-yes ul, .m5-no ul { margin: 8px 0 0; padding-left: 20px; color: var(--ink2); font-size: 17px; }
+.m5-yes li, .m5-no li { margin-bottom: 6px; }
+.m5-search { display: inline-block; background: var(--bg); border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; font: 700 16px ui-monospace, "SF Mono", monospace; margin: 6px 6px 0 0; color: var(--ink); }
+
+.m5-go { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 26px; }
+.btn.ghost { background: transparent; color: var(--ink); border: 2px solid var(--line); box-shadow: none; }
+section.dark .btn.ghost { color: var(--milk); border-color: rgba(255, 255, 255, 0.3); }
+.m5-back { display: inline-block; margin-bottom: 14px; font-weight: 700; }
+
+@media (max-width: 820px) {
+  .m5-hero .wrap, .m5-two { grid-template-columns: minmax(0, 1fr); gap: 34px; }
+  .m5-stage { min-height: 360px; }
+  .m5-sec { padding: 56px 0; }
+  .m5-steps li { padding-left: 64px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+@media (max-width: 520px) { .m5-tbl th, .m5-tbl td { padding: 12px 8px; font-size: 15px; } }

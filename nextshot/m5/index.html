@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>The M5 shot timer: Next Shot</title>
+<meta name="description" content="A small M5StickC Plus on your espresso machine feels the pump, times every shot by itself and sends it to Next Shot over Bluetooth. How it works, what it does for you, and how to get one.">
+<link rel="icon" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../style.css?v=6">
+<link rel="stylesheet" href="../m5.css?v=2">
+<link rel="stylesheet" href="m5page.css?v=4">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../"><span class="cupwrap"><img src="../assets/icon-512.png" alt=""></span>Next Shot</a>
+    <nav>
+      <a href="#how">How it works</a>
+      <a href="#phone">On your iPhone</a>
+      <a href="#sound">Sound profile</a>
+      <a href="#get">Get one</a>
+      <a href="#questions">Questions</a>
+      <div class="m5tab"><button class="m5btn" type="button" aria-haspopup="true" aria-expanded="false">M5<span class="m5tag">Coming soon · Alpha testing</span></button><div class="m5menu" role="menu"><a role="menuitem" href="./">What is the M5?</a><span class="m5sub">The M5 shot timer works with the full edition of Next Shot.</span><button class="m5interest" type="button" role="menuitem">I'm interested</button></div></div>
+    </nav>
+  </div>
+</header>
+
+<div class="m5-strip"><b>Alpha testing.</b> The M5 shot timer is being tested now.<button class="m5interest" type="button">Join the Alpha</button></div>
+
+<main>
+<section class="m5-hero" id="top">
+  <div class="wrap">
+    <div>
+      <a class="m5-back" href="../">&larr; Next Shot</a>
+      <p class="kicker">The M5 shot timer</p>
+      <h1>Pull the shot.<br>It does the <em>timing.</em></h1>
+      <p class="lead">A small stick on your espresso machine feels the pump start, times the shot and sends it to Next Shot. When you pick up your phone, the brew is already waiting, with the time filled in.</p>
+      <div class="actions">
+        <a class="btn" href="#how">How it works</a>
+        <a class="btn ghost" href="#setup">Set up your stick</a>
+      </div>
+      <p class="note">Works with the full edition of Next Shot on iPhone, iOS 26.1 or later. Alpha testing.</p>
+    </div>
+    <div>
+      <div class="m5-stage">
+        <div class="mstick" id="mstick" data-state="READY" aria-hidden="true">
+          <div class="body">
+            <div class="side"></div>
+            <div class="screen" id="mscreen"><div class="lbl" id="mlbl">READY</div><div class="big" id="mbig">00:00</div><div class="sub" id="msub">FINER</div><div class="cuprow" id="mcups"></div></div>
+            <div class="logo">M5</div>
+            <div class="front"></div>
+          </div>
+          <div class="usb"></div>
+        </div>
+      </div>
+      <p class="m5-cap">Illustration of the stick's screen, sped up.</p>
+    </div>
+  </div>
+</section>
+
+<section class="m5-sec dark" id="what">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker">What it is</p>
+      <h2>A tiny gadget with one job.</h2>
+      <p>The M5 shot timer is an <b>M5StickC Plus 1.1</b>: a small coloured stick with a screen, three buttons, a motion sensor and a microphone. We put Brew Tracker software on it, and it does one thing very well. It knows when a shot starts and when it stops.</p>
+    </div>
+    <div class="m5-two">
+      <figure class="m5-fig" style="margin:0">
+        <svg viewBox="0 0 520 330" role="img" aria-label="The stick, with its screen, front button, side button and USB-C port labelled">
+          <rect x="30" y="20" width="130" height="270" rx="24" fill="#f26b2b"/>
+          <rect x="44" y="36" width="102" height="150" rx="10" fill="#101010"/>
+          <text x="95" y="108" text-anchor="middle" fill="#7ee08a" font-family="ui-monospace,monospace" font-weight="800" font-size="20">READY</text>
+          <text x="95" y="140" text-anchor="middle" fill="#fff" font-family="ui-monospace,monospace" font-weight="800" font-size="26">00:00</text>
+          <text x="95" y="212" text-anchor="middle" fill="#fff" font-weight="900" font-size="14">M5</text>
+          <rect x="66" y="226" width="58" height="30" rx="10" fill="#2b2b2b"/>
+          <rect x="24" y="80" width="6" height="40" rx="3" fill="#2b2b2b"/>
+          <rect x="78" y="288" width="34" height="10" rx="4" fill="#2b2b2b"/>
+          <g stroke="var(--accent)" stroke-width="1.5" fill="none"><path d="M146 110 H215"/><path d="M124 241 H215"/><path d="M24 100 H10 V60 H215"/><path d="M112 295 H215"/></g>
+          <g class="svg-ink" font-size="16" font-weight="700"><text x="222" y="115">Screen: time, bean, advice</text><text x="222" y="246">Front button: back to READY</text><text x="222" y="65">Side button: shot history</text><text x="222" y="300">USB-C: charge and first set-up</text></g>
+          <text class="svg-ink2" x="222" y="140" font-size="14">(Power button on the side of the case</text>
+          <text class="svg-ink2" x="222" y="158" font-size="14">opens the bean picker.)</text>
+        </svg>
+        <figcaption>The stick, labelled.</figcaption>
+      </figure>
+      <div>
+        <ul class="m5-list">
+          <li><b>It feels the pump.</b> Espresso machines shake a little when the pump runs. The stick has a motion sensor that notices.</li>
+          <li><b>It listens, too.</b> The microphone confirms the shot, and can learn what your own machine sounds like.</li>
+          <li><b>It tells your iPhone.</b> Over Bluetooth. No Wi-Fi, no account, no cable after the first set-up.</li>
+          <li><b>It shows the next move.</b> Before you pull, the screen shows the grind to use and the yield to aim for.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="m5-sec" id="why">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker">Why you would want one</p>
+      <h2>Because shots do not wait for your thumbs.</h2>
+      <p>Pulling a good shot already takes both hands. A timer should not be one more thing to remember.</p>
+    </div>
+    <div class="m5-cards">
+      <div class="m5-card"><h3>Two hands, one shot</h3><p>You cannot start a phone timer, lock in the portafilter and place the cup at once. The stick starts itself.</p></div>
+      <div class="m5-card"><h3>No lost seconds</h3><p>A hand timer starts when you remember. The stick counts from the very first moment the pump ran, even though it needs a second and a half to be sure.</p></div>
+      <div class="m5-card"><h3>No retyping</h3><p>Without it, you note the time and type it into Log Brew. With it, the draft is waiting with the time filled in.</p></div>
+      <div class="m5-card"><h3>Pre-infusion, understood</h3><p>It tells the gentle first stage from the main flow, does not stop early in a pause, and shows "Pre 6 s &middot; Main 22 s" on the brew.</p></div>
+      <div class="m5-card"><h3>A plan before you pull</h3><p>The READY screen shows the coach's move (finer, coarser, keep), the grind to use and the yield to aim for.</p></div>
+      <div class="m5-card"><h3>A better coach</h3><p>The coach reads real times, pre-infusion and the shot graph, not just numbers typed from memory.</p></div>
+    </div>
+    <p class="m5-note">Best for home espresso drinkers who dial in each new bag, and for machines with no built-in shot timer. It is for espresso only: it senses the machine, so it does not time filter brews.</p>
+  </div>
+</section>
+
+<section class="m5-sec dark" id="how">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker">How it works</p>
+      <h2>How it knows a shot has started.</h2>
+      <p>No buttons to press. The stick follows what the machine does.</p>
+    </div>
+    <div class="m5-two">
+      <ol class="m5-list">
+        <li><b>Vibration starts a shot.</b> When the pump runs, the stick moves to CHECKING.</li>
+        <li><b>It checks for 1.5 seconds.</b> Most of the readings (70 per cent) must look like a real shot. Then it times from the very first moment, so nothing is lost.</li>
+        <li><b>Pre-infusion is allowed.</b> In the first 15 seconds it waits through 6 seconds of quiet before calling the shot over, so a pause does not end it early.</li>
+        <li><b>It stops by itself.</b> When the vibration fades for a second and the machine is quiet, the shot ends at the last moment the pump was running.</li>
+        <li><b>Flushes are ignored.</b> Anything under 5 seconds is not logged as a shot.</li>
+      </ol>
+      <figure class="m5-fig" style="margin:0">
+        <svg viewBox="0 0 720 240" role="img" aria-label="A timeline of machine vibration: idle, a checking window of 1.5 seconds, the shot timed from its first moment, a pre-infusion pause that does not stop it, then the end">
+          <rect class="svg-box" x="112" y="30" width="62" height="130" rx="6"/>
+          <text class="svg-ink2" x="143" y="22" text-anchor="middle" font-size="13" font-weight="700">CHECKING 1.5 s</text>
+          <path id="wave" class="svg-line" d=""/>
+          <line x1="112" y1="30" x2="112" y2="200" stroke="var(--accent)" stroke-width="2" stroke-dasharray="3 3"/>
+          <text class="svg-ink" x="112" y="218" text-anchor="middle" font-size="13" font-weight="800">Timed from here</text>
+          <text class="svg-ink2" x="36" y="180" text-anchor="middle" font-size="13">Idle</text>
+          <text class="svg-ink2" x="400" y="180" text-anchor="middle" font-size="13">Pre-infusion pause: does not stop it</text>
+          <line x1="620" y1="30" x2="620" y2="200" stroke="var(--accent)" stroke-width="2" stroke-dasharray="3 3"/>
+          <text class="svg-ink" x="620" y="218" text-anchor="middle" font-size="13" font-weight="800">Shot ends here</text>
+        </svg>
+        <figcaption>What the stick feels, in simple form.</figcaption>
+      </figure>
+    </div>
+    <p class="m5-note">Built and tuned on a Gaggia Classic. It should work on any espresso machine whose pump vibrates. More machines are being tested during the Alpha.</p>
+  </div>
+</section>
+
+<section class="m5-sec" id="screens">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker">On the stick</p>
+      <h2>Four screens you will see every day.</h2>
+      <p>Bright, large and readable from the other side of the machine.</p>
+    </div>
+    <div class="m5-screens">
+      <div class="m5-screenwrap"><div class="m5-mini"><div class="lbl">READY</div><div class="big" style="color:#7ee08a">00:00</div><div class="sub">FINER &middot; LAST 24 s &middot; AIM 28</div></div><h3>READY</h3><p>Your next shot, before you pull: the coach's move, the grind to use and the aim.</p></div>
+      <div class="m5-screenwrap"><div class="m5-mini"><div class="lbl">BREWING</div><div class="big" style="color:#5fd07a">27</div><div class="sub">the cup fills as you go</div></div><h3>BREWING</h3><p>The time in colour, and the background fills like a cup.</p></div>
+      <div class="m5-screenwrap"><div class="m5-mini"><div class="lbl">DONE</div><div class="big" style="color:#5fd07a">28.4</div><div class="sub">Keep it</div></div><h3>DONE</h3><p>The time, with a line of advice: grind finer, grind coarser or keep it.</p></div>
+      <div class="m5-screenwrap"><div class="m5-mini"><div class="lbl">LOGGED</div><div class="big" style="font-size:24px">Logged</div><div class="sub">&middot; your bean</div></div><h3>LOGGED</h3><p>When you log the brew in the app, the stick shows the bag dropping in.</p></div>
+    </div>
+    <div class="bands" aria-label="Colour bands"><span><i style="background:var(--band-y)"></i>Just short of your target</span><span><i style="background:var(--band-g)"></i>Inside your target</span><span><i style="background:var(--band-r)"></i>Past it (red pulse from 30 s)</span></div>
+    <p class="m5-note">The target band follows your coffee: it starts from the roast level and moves with the coach's aim and your taste. Small extras (good morning, cups today, night mode, bag colours, milestone confetti, and a Find my timer button in the app) can be switched off with one setting.</p>
+    <p class="m5-note" style="border-color:var(--line)"><b>Buttons.</b> Front: back to READY. Side: shot history (last 10 shots with date, time and duration). Power click: pick your bean. Power hold for 6 seconds: switch off.</p>
+  </div>
+</section>
+
+<section class="m5-sec dark" id="phone">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker">On your iPhone</p>
+      <h2>The stick times it. Your phone keeps it.</h2>
+      <p>It works with the full edition of Next Shot. Bluetooth carries on in the background, so shots reach the app while your phone is locked, as long as it is in range.</p>
+    </div>
+    <div class="m5-phones">
+      <div>
+        <div class="m5-ph"><div class="scr"><div class="clock" id="lockclock">7:42</div>
+          <div class="m5-la"><div><small>Shot timer</small><span id="lasub">Pulling a shot</span></div><b id="latime">0 s</b></div>
+          <div class="lab">LOCK SCREEN</div></div></div>
+        <p class="m5-phcap">The shot on your Lock Screen and Dynamic Island. At the end: "Tap to log this shot".</p>
+      </div>
+      <div>
+        <div class="m5-ph"><div class="scr"><div class="lab" style="margin-top:0">LOG BREW</div>
+          <div class="row"><span>Time</span><b>28 s</b></div>
+          <div class="row"><span>Pre-infusion</span><b>Pre 6 s &middot; Main 22 s</b></div>
+          <div class="m5chip">From timer</div>
+          <div class="row"><span>Bean</span><b>Your bag</b></div></div></div>
+        <p class="m5-phcap">Log Brew opens with the time filled in. "From timer" lists recent shots.</p>
+      </div>
+    </div>
+    <div class="m5-cards" style="margin-top:34px">
+      <div class="m5-card"><h3>Live timer</h3><p>The app's timer page shows the running time as a glass dial with the live shot graph. A timer bar above the tab bar shows "Timer ready &middot; Bluetooth" and the stick's battery.</p></div>
+      <div class="m5-card"><h3>A draft, waiting</h3><p>When the shot ends, the app makes a draft brew on your current bean, with the last numbers. On a coached bag it uses the coach's grind and yield.</p></div>
+      <div class="m5-card"><h3>Shot history</h3><p>Every shot, by day, with its colour band and the bean it was logged on. Shots made while you were away are collected next time you connect (the stick keeps the last 10).</p></div>
+      <div class="m5-card"><h3>Graph and split</h3><p>A small graph of each shot, and the pre-infusion split, on the summary and the brew's page.</p></div>
+      <div class="m5-card"><h3>A Shot Timer widget</h3><p>Connected or not, battery, today's shots, and the last time in its colour band.</p></div>
+      <div class="m5-card"><h3>Your choice</h3><p>Settings &gt; Shot Timer &gt; Use M5 shot timer. Switch it off and the app never uses Bluetooth, with no permission prompt. No stick? You can still type the time by hand.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="m5-sec" id="loop">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker">A loop with the coach</p>
+      <h2>Your next grind is on the stick before you pull.</h2>
+      <p>The link goes both ways. The stick tells the phone what happened. The phone tells the stick what to do next.</p>
+    </div>
+    <figure class="m5-fig" style="margin:0">
+      <svg viewBox="0 0 720 230" role="img" aria-label="The stick sends the shot time, graph and pre-infusion to the phone. The phone sends the grind, the aim, the target band and the bean back to the stick.">
+        <rect x="20" y="60" width="170" height="110" rx="20" fill="#f26b2b"/>
+        <text x="105" y="122" text-anchor="middle" fill="#fff" font-size="22" font-weight="800">M5 stick</text>
+        <rect x="530" y="60" width="170" height="110" rx="20" fill="#2b2b2b"/>
+        <text x="615" y="122" text-anchor="middle" fill="#f5efe6" font-size="22" font-weight="800">iPhone</text>
+        <path d="M200 90 H520" stroke="var(--accent)" stroke-width="3" fill="none"/><path d="M520 90 l-12 -8 v16 z" fill="var(--accent)"/>
+        <text class="svg-ink" x="360" y="76" text-anchor="middle" font-size="16" font-weight="800">Shot, time, graph, pre-infusion</text>
+        <path d="M520 150 H200" stroke="var(--accent)" stroke-width="3" fill="none"/><path d="M200 150 l12 -8 v16 z" fill="var(--accent)"/>
+        <text class="svg-ink" x="360" y="178" text-anchor="middle" font-size="16" font-weight="800">Grind, aim, target band, bean</text>
+        <text class="svg-ink2" x="360" y="212" text-anchor="middle" font-size="14">Over Bluetooth, in both directions. The phone also sets the stick's clock.</text>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<section class="m5-sec dark" id="sound">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker">Sound profile</p>
+      <h2>Teach it what your machine sounds like.</h2>
+      <p>Vibration always starts a shot. Sound helps the stick decide when it is really over. A sound profile makes that decision about your own machine, in your own kitchen.</p>
+    </div>
+    <div class="m5-two">
+      <div>
+        <h3>Why bother</h3>
+        <p class="sub">Out of the box, the stick uses fixed loudness levels. They work well on the machine it was built on. A different machine, a noisy grinder next to it or a loud extractor fan can look quite different. The profile replaces the fixed levels with a fingerprint of your setup.</p>
+        <h3 style="margin-top:22px">What it changes, and what it does not</h3>
+        <ul class="m5-list">
+          <li>It changes only the sound part of detection.</li>
+          <li>Vibration still starts every shot and sets the start time. Sound never starts a shot.</li>
+          <li>With the profile on, "sounds like the shot" replaces the fixed loudness tests, and the stop needs half a second of not sounding like the shot. The loudness gate stays as a safety check.</li>
+          <li>It is off by default. No profile, or the switch off: the stick behaves exactly as before.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>How you teach it</h3>
+        <ol class="m5-steps" style="margin-top:12px">
+          <li><h3>Quiet room</h3><p>5 seconds of the kitchen with the machine idle.</p></li>
+          <li><h3>Grinder (optional)</h3><p>8 seconds of the grinder running. You can skip this.</p></li>
+          <li><h3>A real shot</h3><p>Pull a normal shot. It is kept as a normal shot, with a draft, so nothing is wasted.</p></li>
+        </ol>
+      </div>
+    </div>
+    <div class="m5-cards" style="margin-top:28px">
+      <div class="m5-card"><h3>It checks the result</h3><p>The shot must last at least 15 seconds, be clearly louder than the quiet room, and sound clearly different from the grinder. You then Save it, or Try again with the reason (shot too short, too close to the quiet room, too close to the grinder).</p></div>
+      <div class="m5-card"><h3>Shadow mode first</h3><p>Once saved, the stick quietly records on each shot whether the profile would have agreed, and shows it on the shot summary. Nothing changes yet. After 9 of the last 10 shots agree, the app suggests "Turn it on".</p></div>
+      <div class="m5-card"><h3>You stay in control</h3><p>In the shot timer settings: a Use sound profile switch, Redo sound profile and Forget profile (with a confirmation). One profile only. The stick keeps it, and the app keeps a copy to send back if the stick ever loses it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="m5-sec" id="updates">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker">Updates</p>
+      <h2>Flash once. Update from the app.</h2>
+      <p>You use a computer for the very first set-up only. After that, the app checks for new stick software each time it opens. When one is ready, the timer bar says "Timer update available".</p>
+    </div>
+    <div class="m5-cards">
+      <div class="m5-card"><h3>Safe by design</h3><p>The update goes into a spare slot, is checked, then the stick restarts. If anything fails, the old version keeps running and the app offers to try again.</p></div>
+      <div class="m5-card"><h3>Never at a bad moment</h3><p>Not during a shot, and not below 30 per cent battery.</p></div>
+      <div class="m5-card"><h3>Keeps going in the background</h3><p>You can close the update screen. Progress shows in the timer bar and on the Lock Screen.</p></div>
+      <div class="m5-card"><h3>Needs the internet once</h3><p>Your phone downloads the update, then sends it to the stick over Bluetooth.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="m5-sec dark" id="compare">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker">With and without</p>
+      <h2>What changes when you add the stick.</h2>
+    </div>
+    <div class="m5-tablewrap"><table class="m5-tbl">
+      <thead><tr><th></th><th>Without the M5</th><th>With the M5</th></tr></thead>
+      <tbody>
+        <tr><td>Shot time</td><td>Typed in or dragged on the ruler</td><td>Timed by itself and filled in</td></tr>
+        <tr><td>Live timer</td><td>None yet</td><td>On the stick, in the app and on the Lock Screen</td></tr>
+        <tr><td>Draft brew</td><td>You start Log Brew</td><td>Made when the shot ends, even with the phone locked</td></tr>
+        <tr><td>Pre-infusion</td><td>Not recorded</td><td>"Pre 6 s &middot; Main 22 s"</td></tr>
+        <tr><td>Shot graph</td><td>Not available</td><td>On the summary and brew page</td></tr>
+        <tr><td>Shot history</td><td>Brews only</td><td>Every shot, with date and time, logged or not</td></tr>
+        <tr><td>Next grind</td><td>On your phone</td><td>On your phone and on the stick</td></tr>
+        <tr><td>The coach</td><td>Works from typed times</td><td>Also reads pre-infusion and shot shape</td></tr>
+      </tbody></table></div>
+    <p class="m5-note">Everything else in Next Shot works the same with or without the stick.</p>
+  </div>
+</section>
+
+<section class="m5-sec" id="get">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker">Get one</p>
+      <h2>Buy it yourself. Here is what to look for.</h2>
+      <p>You source the stick yourself. We do not sell it or link to a shop, and we make no money from it. Search for this:</p>
+      <p><span class="m5-search">M5StickC PLUS</span><span class="m5-search">M5StickC PLUS 1.1</span></p>
+    </div>
+    <div class="m5-two" style="align-items:start">
+      <div>
+        <h3>What it looks like</h3>
+        <ul class="m5-list">
+          <li>A small orange case, roughly the size of a matchbox, with an "M5" mark.</li>
+          <li>A colour screen near the top, in portrait.</li>
+          <li>A big button on the front, below the screen.</li>
+          <li>A small button on the left side.</li>
+          <li>A USB-C port on the bottom.</li>
+        </ul>
+        <p class="m5-note">The stick in the picture on this page and on the set-up guide is drawn to match. If yours looks the same, you are close. Check the name too.</p>
+      </div>
+      <div class="m5-good">
+        <div class="m5-yes"><h3>Right</h3><ul><li>The name says <b>M5StickC PLUS</b> (or PLUS 1.1)</li><li>A USB-C cable that carries data (the one in the box works)</li></ul></div>
+        <div class="m5-no"><h3>Not supported yet</h3><ul><li>Other M5 models, including the PLUS2 and the plain M5StickC without PLUS</li><li>Phone-charging cables that only carry power</li></ul></div>
+      </div>
+    </div>
+    <p class="m5-note">Buy from M5Stack or a seller you trust. We cannot check a seller for you, and we are not sponsored by any.</p>
+  </div>
+</section>
+
+<section class="m5-sec dark" id="setup">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker">What you need, and how to start</p>
+      <h2>From the box to your first shot.</h2>
+      <p>You need: an iPhone on iOS 26.1 or later, the full edition of Next Shot (Alpha testers get the install link by email), an M5StickC PLUS 1.1, a USB-C data cable, and once only, a Mac or Windows computer with Chrome or Edge. Phones and iPads cannot flash the stick.</p>
+    </div>
+    <ol class="m5-steps">
+      <li><h3>Flash it, once</h3><p>The set-up guide does it from your browser in about a minute. The stick arrives blank, so this puts the Brew Tracker software on it.</p></li>
+      <li><h3>Pair it in the app</h3><p>Turn on Use M5 shot timer, allow Bluetooth when the app explains why, then tap Connect shot timer. The phone sets the stick's clock for you.</p></li>
+      <li><h3>Put it on the machine</h3><p>Anywhere it can sense the pump's vibration: on, against or beside the machine. Pull a shot. The stick should go from READY to CHECKING on its own. If it does not, try a spot nearer the pump.</p></li>
+      <li><h3>Pull a shot</h3><p>Watch it on the stick, the app and the Lock Screen. Tap to log it, and the time is already there.</p></li>
+    </ol>
+    <div class="m5-go">
+      <a class="btn" href="../../flash/">Continue to the set-up guide</a>
+      <button class="btn ghost m5interest" type="button">I'm interested in the Alpha</button>
+    </div>
+  </div>
+</section>
+
+<section class="m5-sec" id="limits">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker">Straight talk</p>
+      <h2>What it cannot do.</h2>
+    </div>
+    <ul class="m5-list">
+      <li>iPhone only, iOS 26.1 or later. No Android, no iPad.</li>
+      <li>It connects to the full edition of Next Shot only. The App Store edition has no Bluetooth link.</li>
+      <li>Espresso only. It senses the machine, so it does not time filter brews.</li>
+      <li>Bluetooth only. There is no Wi-Fi link, and the phone sets its clock.</li>
+      <li>Your phone needs to be in Bluetooth range for live updates. Shots made apart are kept (the last 10) and sent when it reconnects.</li>
+      <li>Shots under 5 seconds are ignored.</li>
+      <li>Only the M5StickC PLUS 1.1 is supported.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="faq" id="questions">
+  <div class="narrow">
+    <h2>Questions</h2>
+    <details><summary>Does it work with my machine?</summary><p>It should work with any espresso machine whose pump vibrates. It was built and tuned on a Gaggia Classic, and more machines are being tested in the Alpha.</p></details>
+    <details><summary>Where do I put it?</summary><p>Anywhere it can sense vibration: on, against or beside the machine. Pull a shot and watch the screen. If it goes from READY to CHECKING by itself, you have found a good spot.</p></details>
+    <details><summary>Does it work with the App Store version?</summary><p>No. It connects to the full edition of Next Shot. The App Store version does not connect to the stick. Alpha testers get the install link by email.</p></details>
+    <details><summary>Do I need to flash it?</summary><p>Yes, once, from a Mac or Windows computer with Chrome or Edge. It takes about a minute. After that, updates come from the app.</p></details>
+    <details><summary>Can I flash it from my phone or iPad?</summary><p>No. Read the guide on your phone if you like, and flash from the computer.</p></details>
+    <details><summary>Does it use Wi-Fi?</summary><p>No, only Bluetooth. Your phone sets the stick's clock when they connect.</p></details>
+    <details><summary>Does it work when my phone is locked?</summary><p>Yes, while the stick is in Bluetooth range. Shots made out of range are kept (the last 10) and sent when it reconnects.</p></details>
+    <details><summary>What if an update fails?</summary><p>The stick keeps its old version and the app offers Try again.</p></details>
+    <details><summary>Will it start for a flush?</summary><p>No. Anything under 5 seconds is ignored.</p></details>
+    <details><summary>What about pre-infusion?</summary><p>It waits through pauses in the first 15 seconds, and shows the split, for example "Pre 6 s &middot; Main 22 s".</p></details>
+    <details><summary>Do I have to use the sound profile?</summary><p>No. It is off by default and the stick works without it. It is there if your machine or kitchen confuses the fixed levels.</p></details>
+    <details><summary>Does it time filter brews?</summary><p>No. It senses an espresso machine's pump, so it is for espresso only.</p></details>
+    <details><summary>Can I turn it off in the app?</summary><p>Yes. Settings &gt; Shot Timer &gt; Use M5 shot timer. Switched off, the app never uses Bluetooth and asks for no permission.</p></details>
+    <details><summary>How long does the battery last?</summary><p>The app shows the stick's battery and warns you when it is low. Charge it over USB-C.</p></details>
+    <details><summary>Where does my data go?</summary><p>Your shots go from the stick to your iPhone over Bluetooth and nowhere else. For updates, the app downloads the stick software from GitHub. See the <a href="../privacy.html">privacy policy</a>.</p></details>
+    <details><summary>Where do I buy one?</summary><p>You source it yourself. See "Get one" above for what to search for and what it looks like. We do not sell it or link to a shop.</p></details>
+    <details><summary>Is it open source?</summary><p>No. The software file you flash is public, and the source stays private.</p></details>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Ready when your machine is.</h2>
+    <div class="actions center">
+      <a class="btn" href="../../flash/">Continue to the set-up guide</a>
+      <button class="btn ghost m5interest" type="button">I'm interested</button>
+      <a class="btn ghost" href="../">Back to Next Shot</a>
+    </div>
+    <p class="note">Alpha testing. The set-up guide works today for Alpha testers.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Next Shot: Brew Tracker</span>
+    <span><a href="../privacy.html">Privacy</a><a href="../support.html">Support</a><a href="../../flash/">Set-up guide</a></span>
+  </div>
+</footer>
+
+<script src="m5page.js?v=2" defer></script>
+<script src="../m5.js?v=1" defer></script>
+</body>
+</html>
