@@ -1,0 +1,38 @@
+/* M5 tab, interest form. Uses the colour tokens from style.css. */
+.m5tab { position: relative; display: inline-block; margin-left: 22px; vertical-align: middle; }
+.m5btn { font: inherit; font-weight: 600; font-size: 16px; color: var(--ink2); background: none; border: 0; padding: 0; cursor: pointer; text-align: left; line-height: 1.15; }
+.m5btn:hover, .m5btn[aria-expanded="true"] { color: var(--ink); }
+.m5btn .m5tag { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.02em; color: var(--accent); }
+.m5menu { display: none; position: absolute; right: 0; top: calc(100% + 12px); min-width: 230px; background: var(--card); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); padding: 8px; z-index: 60; }
+.m5menu.open { display: block; }
+nav .m5menu a, .m5menu button { display: block; width: 100%; text-align: left; margin: 0; padding: 11px 14px; border-radius: 10px; border: 0; background: none; font: inherit; font-weight: 600; font-size: 16px; color: var(--ink); text-decoration: none; cursor: pointer; }
+nav .m5menu a:hover, .m5menu button:hover { background: var(--line); }
+.m5menu .m5sub { display: block; padding: 6px 14px 8px; font-size: 13px; color: var(--ink2); }
+.m5menu .m5interest { color: var(--accent); }
+
+dialog.m5dlg { border: 1px solid var(--line); border-radius: 22px; background: var(--card); color: var(--ink); padding: 0; width: min(460px, 100% - 32px); box-shadow: var(--shadow); }
+dialog.m5dlg::backdrop { background: rgba(20, 14, 10, 0.55); }
+.m5dlg form, .m5dlg .m5done { padding: 26px 26px 22px; }
+.m5dlg h2 { margin: 0 0 6px; font-size: 26px; font-weight: 800; letter-spacing: -0.01em; }
+.m5dlg p { margin: 0 0 16px; color: var(--ink2); font-size: 15px; }
+.m5dlg label, .m5dlg legend { display: block; font-weight: 700; font-size: 14px; margin: 14px 0 6px; padding: 0; }
+.m5dlg fieldset { border: 0; margin: 0; padding: 0; }
+.m5dlg input[type=text], .m5dlg input[type=email], .m5dlg input[type=tel], .m5dlg select {
+  width: 100%; font: inherit; font-size: 16px; color: var(--ink); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 12px; padding: 11px 13px; }
+.m5dlg input:focus, .m5dlg select:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.m5dlg .m5radios { display: flex; gap: 10px; }
+.m5dlg .m5radios label { display: flex; align-items: center; gap: 8px; margin: 0; font-weight: 600; flex: 1; border: 1px solid var(--line); border-radius: 12px; padding: 10px 13px; cursor: pointer; background: var(--bg); }
+.m5dlg .m5radios input { accent-color: var(--accent); }
+.m5dlg .m5hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.m5dlg .m5privacy { font-size: 13px; margin: 14px 0 0; }
+.m5dlg .m5err { color: var(--accent); font-weight: 700; font-size: 14px; min-height: 1.2em; margin: 10px 0 0; }
+.m5dlg .m5row { display: flex; gap: 10px; margin-top: 14px; }
+.m5dlg .m5row .btn { flex: 1; text-align: center; border: 0; cursor: pointer; font-family: inherit; }
+.m5dlg .m5cancel { background: none; border: 1px solid var(--line); border-radius: 999px; padding: 11px 20px; font: inherit; font-weight: 700; font-size: 16px; color: var(--ink2); cursor: pointer; }
+.m5dlg .btn[disabled] { opacity: 0.6; cursor: default; transform: none; }
+.m5dlg .m5done { text-align: center; }
+.m5dlg .m5done .btn { border: 0; cursor: pointer; font-family: inherit; }
+@media (max-width: 820px) { .m5tab { margin-left: 14px; } .m5btn .m5tag { font-size: 10px; } }
+
+nav .m5menu a { display: block; margin: 0; }
