@@ -16,30 +16,37 @@
     wave.setAttribute("d", "M" + pts.join(" L"));
   }
 
-  /* Stick and Lock Screen cycle: 12 s loop */
-  var st = $("mstick"); if (!st) return;
-  var lbl = $("mlbl"), big = $("mbig"), sub = $("msub"), cups = $("mcups");
+  /* Stick and Lock Screen cycle: 12 s loop. The stick has five screens; only one is shown at a time. */
+  var screens = {}, list = document.querySelectorAll(".heroscr");
+  if (!list.length) return;
+  list.forEach(function (e) { screens[e.getAttribute("data-s")] = e; });
   var latime = $("latime"), lasub = $("lasub");
   var T = { ready: 1500, check: 2500, brew: 8500, done: 10500, end: 12500 };
-  function colour(s) { return s < 23 ? "#ffffff" : s < 25 ? "#f2c230" : s < 31 ? "#5fd07a" : "#ef5b4c"; }
-  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function colour(s) { return s < 18 ? "#ffffff" : s < 22 ? "#ffff00" : s < 27 ? "#00ff00" : "#ff0000"; }
+  var SEG = [["#008000", 0, 60], ["#ffff00", 60, 74], ["#00ff00", 74, 92], ["#ff0000", 92, 100]];
+  function brewing(s) {
+    var fill = Math.min(100, s * 3.33), html = "";
+    var lcd = screens.BREWING.querySelector(".lcd");
+    SEG.forEach(function (g) { if (g[1] < fill) { var b = Math.min(g[2], fill); html += '<span class="lt barseg" style="left:' + (8 + 224 * g[1] / 100) + 'px;top:106px;width:' + (224 * (b - g[1]) / 100) + 'px;background:' + g[0] + '"></span>'; } });
+    lcd.querySelectorAll(".barseg").forEach(function (n) { n.remove(); });
+    lcd.insertAdjacentHTML("beforeend", html);
+    var big = lcd.querySelector(".big");
+    big.firstChild.nodeValue = s.toFixed(1); big.style.color = colour(s);
+    lcd.querySelector(".lt[style*='top:86px']").textContent = s >= 22 ? "22 s +" : "";
+  }
+  var shown = "";
   function render(t) {
     var state, s = 0;
     if (t < T.ready) state = "READY";
     else if (t < T.check) state = "CHECKING";
-    else if (t < T.brew) { state = "BREWING"; s = (t - T.check) / (T.brew - T.check) * 28; }
+    else if (t < T.brew) { state = "BREWING"; s = (t - T.check) / (T.brew - T.check) * 26.4; }
     else if (t < T.done) state = "DONE";
     else state = "LOGGED";
-    st.setAttribute("data-state", state); lbl.textContent = state;
-    if (state === "READY") { big.textContent = "00:00"; big.style.color = "#7ee08a"; sub.textContent = "FINER"; }
-    if (state === "CHECKING") { big.textContent = "00:00"; big.style.color = "#fff"; sub.textContent = "feeling the pump"; }
-    if (state === "BREWING") { big.textContent = "00:" + pad(Math.floor(s)); big.style.color = colour(s); sub.textContent = ""; }
-    if (state === "DONE") { big.textContent = "28.4"; big.style.color = "#5fd07a"; sub.textContent = "Keep it"; }
-    if (state === "LOGGED") { big.textContent = "Logged"; big.style.color = "#fff"; sub.textContent = "bag dropped in"; }
-    cups.innerHTML = state === "LOGGED" ? "<i></i><i></i>" : "<i></i>";
+    if (state !== shown) { for (var k in screens) screens[k].hidden = k !== state; shown = state; }
+    if (state === "BREWING") brewing(s);
     if (latime) {
       if (state === "BREWING") { latime.textContent = Math.floor(s) + " s"; lasub.textContent = "Pulling a shot"; }
-      else if (state === "DONE" || state === "LOGGED") { latime.textContent = "28 s"; lasub.textContent = state === "DONE" ? "Tap to log this shot" : "Shot logged"; }
+      else if (state === "DONE" || state === "LOGGED") { latime.textContent = "25 s"; lasub.textContent = state === "DONE" ? "Tap to log this shot" : "Shot logged"; }
       else { latime.textContent = "0 s"; lasub.textContent = "Ready"; }
     }
   }
