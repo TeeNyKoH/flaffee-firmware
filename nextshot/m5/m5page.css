@@ -179,3 +179,32 @@ nav a { white-space: nowrap; margin-left: 16px; }
 /* Buttons: top edge about 35% from the left (shot history), bottom edge about 35% from the right (power and bean picker), big M5 button in the middle of the right-hand end */
 .case::before { content: ""; position: absolute; top: -5px; left: 35%; width: 36px; height: 6px; border-radius: 4px 4px 0 0; background: #b82f1a; }
 .case .sidebtn { right: 35%; bottom: -5px; }
+
+/* Phone pictures: real screenshots of the app in a phone frame, and the Lock Screen card drawn like the app's */
+.m5-ph { width: 230px; padding: 7px; border-radius: 34px; background: #0c0a08; }
+.m5-ph img { width: 100%; height: auto; display: block; border-radius: 27px; }
+.m5-phones { gap: 22px; align-items: flex-start; }
+.m5-ph.lockph .scr { border-radius: 27px; min-height: 480px; padding: 0 12px; position: relative; background: radial-gradient(120% 60% at 20% 0%, #4a1f22, #0a0707 70%); display: block; }
+.lockph .lockdate { text-align: center; font-weight: 700; font-size: 15px; padding-top: 70px; color: #fff; }
+.lockph .clock { font-size: 70px; line-height: 1; margin: 2px 0 0; }
+.m5-la2 { position: absolute; left: 10px; right: 10px; bottom: 56px; background: #1d1b1b; border: 1px solid rgba(255,255,255,0.08); border-radius: 22px; padding: 12px 14px; display: grid; grid-template-columns: auto 1fr auto; gap: 4px 10px; align-items: center; }
+.m5-la2 .laicon { width: 34px; height: 34px; border-radius: 10px; background: #ef5a3c; grid-row: 1; }
+.m5-la2 .laicon::after { content: ""; display: block; width: 14px; height: 10px; margin: 13px auto 0; border: 2px solid #fff; border-top: 0; border-radius: 0 0 6px 6px; }
+.m5-la2 .latxt b { display: block; font-size: 14px; }
+.m5-la2 .latxt small { display: block; font-size: 10px; color: rgba(255,255,255,0.65); }
+.m5-la2 .latime { font: 700 24px ui-monospace, "SF Mono", monospace; }
+.m5-la2 .labartrack { grid-column: 1 / -1; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.18); overflow: hidden; margin-top: 6px; }
+.m5-la2 .labartrack i { display: block; height: 100%; width: 0; background: #fff; border-radius: 2px; transition: width 0.2s linear; }
+.m5-la2 .laf { grid-column: 1 / 3; font: 600 10px ui-monospace, monospace; color: rgba(255,255,255,0.65); }
+.m5-la2 .laf.r { grid-column: 3; text-align: right; }
+@media (max-width: 520px) { .m5-ph { width: 200px; } .m5-ph.lockph .scr { min-height: 420px; } .lockph .clock { font-size: 58px; } }
+.m5-ph { width: 212px; } .m5-phones { gap: 18px; justify-content: center; }
+.m5-la2 .latxt b { white-space: nowrap; font-size: 13px; } .m5-la2 .latxt small { white-space: nowrap; font-size: 9px; } .m5-la2 .latime { font-size: 19px; }
+@media (max-width: 520px) { .m5-ph { width: 200px; } }
+.m5-phones > div { width: 212px; } .m5-phones .m5-phcap { max-width: 212px; }
+@media (max-width: 520px) { .m5-phones > div { width: 200px; } .m5-phones .m5-phcap { max-width: 200px; } }
+
+.m5-la2 { grid-template-columns: auto minmax(0, 1fr) auto; left: 8px; right: 8px; padding: 10px 10px; gap: 4px 8px; }
+.m5-la2 .latxt { min-width: 0; } .m5-la2 .latxt b, .m5-la2 .latxt small { overflow: hidden; text-overflow: ellipsis; }
+.m5-la2 .latime { font-size: 17px; white-space: nowrap; } .m5-la2 .laf { grid-column: 1 / -1; font-size: 9px; white-space: nowrap; }
+.m5-la2 .laicon { width: 30px; height: 30px; }

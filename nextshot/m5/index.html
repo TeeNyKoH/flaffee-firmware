@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <link rel="stylesheet" href="../style.css?v=6">
 <link rel="stylesheet" href="../m5.css?v=2">
-<link rel="stylesheet" href="m5page.css?v=15">
+<link rel="stylesheet" href="m5page.css?v=19">
 </head>
 <body>
 
@@ -220,18 +220,23 @@
     </div>
     <div class="m5-phones">
       <div>
-        <div class="m5-ph"><div class="scr"><div class="clock" id="lockclock">7:42</div>
-          <div class="m5-la"><div><small>Shot timer</small><span id="lasub">Pulling a shot</span></div><b id="latime">0 s</b></div>
-          <div class="lab">LOCK SCREEN</div></div></div>
-        <p class="m5-phcap">The shot on your Lock Screen and Dynamic Island. At the end: "Tap to log this shot".</p>
+        <div class="m5-ph"><img src="assets/app-live-timer.jpg" width="520" height="1130" loading="lazy" alt="The Next Shot live timer: a green ring around the running time, with the bean, grind, temperature and pre-infusion below"></div>
+        <p class="m5-phcap">The live timer while the stick times the shot.</p>
       </div>
       <div>
-        <div class="m5-ph"><div class="scr"><div class="lab" style="margin-top:0">LOG BREW</div>
-          <div class="row"><span>Time</span><b>28 s</b></div>
-          <div class="row"><span>Pre-infusion</span><b>Pre 6 s &middot; Main 22 s</b></div>
-          <div class="m5chip">From timer</div>
-          <div class="row"><span>Bean</span><b>Your bag</b></div></div></div>
-        <p class="m5-phcap">Log Brew opens with the time filled in. "From timer" lists recent shots.</p>
+        <div class="m5-ph"><img src="assets/app-shot-ended.jpg" width="520" height="1130" loading="lazy" alt="Shot ended: the time in its band colour, the bean, the numbers, the coach advice and a Log brew button"></div>
+        <p class="m5-phcap">When the shot ends: the time, the bean, the advice and Log brew.</p>
+      </div>
+      <div>
+        <div class="m5-ph"><img src="assets/app-log-brew.jpg" width="520" height="1130" loading="lazy" alt="Log Brew with the shot time and a From timer button"></div>
+        <p class="m5-phcap">Log Brew, with the shot time ready to fill from the timer.</p>
+      </div>
+      <div>
+        <div class="m5-ph lockph"><div class="scr"><div class="lockdate">Sunday 11 October</div><div class="clock" id="lockclock">11:42</div>
+          <div class="m5-la2"><span class="laicon" aria-hidden="true"></span><div class="latxt"><b id="lasub">Shot running</b><small>Columbia &middot; Espresso &middot; 18g in</small></div><span class="latime" id="latime">0 s</span>
+            <div class="labartrack"><i id="labar"></i></div>
+            <span class="laf">via Bluetooth &middot; last shot 21.3 s</span></div></div></div>
+        <p class="m5-phcap">The shot on your Lock Screen. At the end: "Tap to log this shot".</p>
       </div>
     </div>
     <div class="m5-cards" style="margin-top:34px">
@@ -454,7 +459,7 @@
   </div>
 </footer>
 
-<script src="m5page.js?v=3" defer></script>
+<script src="m5page.js?v=4" defer></script>
 <script src="../m5.js?v=1" defer></script>
 </body>
 </html>

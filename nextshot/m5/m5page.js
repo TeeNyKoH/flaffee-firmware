@@ -20,7 +20,7 @@
   var screens = {}, list = document.querySelectorAll(".heroscr");
   if (!list.length) return;
   list.forEach(function (e) { screens[e.getAttribute("data-s")] = e; });
-  var latime = $("latime"), lasub = $("lasub");
+  var latime = $("latime"), lasub = $("lasub"), labar = $("labar");
   var T = { ready: 1500, check: 2500, brew: 8500, done: 10500, end: 12500 };
   function colour(s) { return s < 18 ? "#ffffff" : s < 22 ? "#ffff00" : s < 27 ? "#00ff00" : "#ff0000"; }
   var SEG = [["#008000", 0, 60], ["#ffff00", 60, 74], ["#00ff00", 74, 92], ["#ff0000", 92, 100]];
@@ -44,8 +44,9 @@
     else state = "LOGGED";
     if (state !== shown) { for (var k in screens) screens[k].hidden = k !== state; shown = state; }
     if (state === "BREWING") brewing(s);
+    if (labar) labar.style.width = (state === "BREWING" ? Math.min(100, s / 28 * 100) : (state === "DONE" || state === "LOGGED") ? 100 : 0) + "%";
     if (latime) {
-      if (state === "BREWING") { latime.textContent = Math.floor(s) + " s"; lasub.textContent = "Pulling a shot"; }
+      if (state === "BREWING") { latime.textContent = Math.floor(s) + " s"; lasub.textContent = "Shot running"; }
       else if (state === "DONE" || state === "LOGGED") { latime.textContent = "25 s"; lasub.textContent = state === "DONE" ? "Tap to log this shot" : "Shot logged"; }
       else { latime.textContent = "0 s"; lasub.textContent = "Ready"; }
     }
