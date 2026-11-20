@@ -196,3 +196,8 @@ input:focus-visible + .tick { outline: 3px solid var(--accent); outline-offset: 
 .plug .laptop { left: 98px; top: 34px; width: 42px; height: 40px; }
 .plug .usb { left: 72px; top: 54px; width: 28px; }
 @media (max-width: 760px) { .stick .body { width: 280px; height: 150px; } .stick .screen { height: 118px; } .stick .cable { width: 60px; right: -60px; } .stickstage { height: 300px; } }
+
+.stick .body::before { content: ""; position: absolute; top: -6px; left: 35%; width: 40px; height: 6px; border-radius: 4px 4px 0 0; background: #b82f1a; }
+.stick .side-btn { right: 35%; }
+.mini::before { content: ""; position: absolute; left: 32%; top: -3px; width: 18px; height: 4px; border-radius: 2px 2px 0 0; background: #b82f1a; }
+.mini .mside { right: 32%; }

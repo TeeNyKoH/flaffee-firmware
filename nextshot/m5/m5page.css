@@ -175,3 +175,7 @@ nav a { white-space: nowrap; margin-left: 16px; }
   .case { padding: 10px 12px 10px 10px; gap: 10px; } .case .bigbtn { width: 50px; height: 50px; } .case .bigbtn::after { font-size: 18px; }
   .m5-stage { overflow: hidden; }
 }
+
+/* Buttons: top edge about 35% from the left (shot history), bottom edge about 35% from the right (power and bean picker), big M5 button in the middle of the right-hand end */
+.case::before { content: ""; position: absolute; top: -5px; left: 35%; width: 36px; height: 6px; border-radius: 4px 4px 0 0; background: #b82f1a; }
+.case .sidebtn { right: 35%; bottom: -5px; }

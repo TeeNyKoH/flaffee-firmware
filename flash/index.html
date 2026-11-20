@@ -9,7 +9,7 @@
 <link rel="icon" href="../nextshot/assets/favicon.png">
 <link rel="apple-touch-icon" href="../nextshot/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="../nextshot/style.css?v=6">
-<link rel="stylesheet" href="flash.css?v=4">
+<link rel="stylesheet" href="flash.css?v=5">
 <link rel="stylesheet" href="../nextshot/m5.css?v=2">
 <script type="module" src="https://unpkg.com/esp-web-tools@10.0.1/dist/web/install-button.js?module"></script>
 </head>
@@ -115,7 +115,7 @@
         <div class="num">1</div>
         <div class="txt">
           <h3>Turn the stick on</h3>
-          <p>Press and hold the <b>small side button</b> on the long edge for 2 seconds until the screen lights up. A blank or demo screen is fine.</p>
+          <p>Press and hold the <b>small button on the bottom edge</b> (the power button) for 2 seconds until the screen lights up. A blank or demo screen is fine.</p>
         </div>
         <div class="anim press" aria-hidden="true">
           <div class="mini"><div class="mscreen"></div><div class="mside"></div></div><div class="finger"></div>
@@ -231,7 +231,7 @@
         <p>With the stick on and plugged in, paste this. It finds the stick by itself.</p>
         <pre class="cmd" data-os="mac"><code>cd ~/Downloads &amp;&amp; python3 -m esptool --chip esp32 --baud 921600 write_flash 0x0 shot_timer-2.99.merged.bin</code><button class="copy">Copy</button></pre>
         <pre class="cmd" data-os="win"><code>cd $HOME\Downloads; py -m esptool --chip esp32 --baud 921600 write_flash 0x0 shot_timer-2.99.merged.bin</code><button class="copy">Copy</button></pre>
-        <p>You'll see <i>Writing at 0x…</i> lines, then <b>Hash of data verified</b>. Press the side button to restart the stick.</p>
+        <p>You'll see <i>Writing at 0x…</i> lines, then <b>Hash of data verified</b>. Press the bottom button to restart the stick.</p>
       </div></li>
     </ol>
   </div>
@@ -252,20 +252,20 @@
     <div class="fixes">
       <div class="fix" data-fix="noport"><h3>No port in the list</h3><ol>
         <li>Swap the cable. A charge-only cable is the cause nine times out of ten.</li>
-        <li>Make sure the stick is on (hold the side button for 2 seconds).</li>
+        <li>Make sure the stick is on (hold the bottom button for 2 seconds).</li>
         <li>Plug straight into the computer, not a hub or a monitor.</li>
         <li>Windows, or a Mac that still shows nothing: install the USB driver from <a href="https://docs.m5stack.com/en/download" target="_blank" rel="noopener">M5Stack's download page</a> (look for <b>CH9102</b>), restart the computer and try again.</li></ol></div>
       <div class="fix" data-fix="connect"><h3>"Failed to connect" or "Timed out"</h3><ol>
         <li>Close the Arduino IDE, Cura, or anything else that may be using the port.</li>
         <li>Unplug the stick, wait 5 seconds, plug it back in and press Install again.</li>
-        <li>Still failing: hold the side button for 6 seconds to turn the stick fully off, then plug it in. It starts in a state that's easier to talk to.</li></ol></div>
+        <li>Still failing: hold the bottom button for 6 seconds to turn the stick fully off, then plug it in. It starts in a state that's easier to talk to.</li></ol></div>
       <div class="fix" data-fix="stuck"><h3>It stopped part way</h3><ol>
         <li>Nothing is broken: the stick can always be flashed again.</li>
         <li>Unplug, plug back in and press Install again. Choose to erase when asked.</li>
         <li>Try a different USB port, or the manual way with <code>--baud 115200</code> in place of <code>921600</code> (slower, steadier).</li></ol></div>
       <div class="fix" data-fix="black"><h3>The screen stays black afterwards</h3><ol>
-        <li>Press the side button once. The stick may simply be asleep.</li>
-        <li>Charge it for 10 minutes on the cable, then hold the side button for 2 seconds.</li>
+        <li>Press the bottom button once. The stick may simply be asleep.</li>
+        <li>Charge it for 10 minutes on the cable, then hold the bottom button for 2 seconds.</li>
         <li>Flash again and choose to erase the stick when asked.</li></ol></div>
       <div class="fix" data-fix="nobt"><h3>The app can't find the stick</h3><ol>
         <li>Check the stick shows <b>READY</b>.</li>
