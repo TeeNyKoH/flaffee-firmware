@@ -170,3 +170,8 @@ nav a { white-space: nowrap; margin-left: 16px; }
 .case.sm { padding: 10px 12px 10px 10px; gap: 10px; }
 .case.sm .bigbtn { width: 50px; height: 50px; }
 .case.sm .bigbtn::after { font-size: 18px; }
+@media (max-width: 520px) {
+  .lcd { --z: 0.88; } .case.sm .lcd { --z: 0.8; }
+  .case { padding: 10px 12px 10px 10px; gap: 10px; } .case .bigbtn { width: 50px; height: 50px; } .case .bigbtn::after { font-size: 18px; }
+  .m5-stage { overflow: hidden; }
+}

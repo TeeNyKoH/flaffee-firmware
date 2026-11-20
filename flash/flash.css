@@ -170,3 +170,29 @@ input:focus-visible + .tick { outline: 3px solid var(--accent); outline-offset: 
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .step { opacity: 1; transform: none; }
 }
+
+/* The stick is used lengthways: screen on the left, big M5 button on the right, port at the right-hand end */
+:root { --stick: #f0553a; --stick-dark: #d23a22; }
+.stick { animation: bobh 4s ease-in-out infinite; }
+@keyframes bobh { 0%, 100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-10px) rotate(-1deg); } }
+.stick .body { width: 330px; height: 170px; display: flex; align-items: center; gap: 14px; padding: 14px 16px 14px 14px; border-radius: 24px; }
+.stick .screen { flex: 1; height: 134px; box-shadow: inset 0 0 0 3px #1c1c1c; }
+.stick .logo { display: none; }
+.stick .front-btn { position: relative; width: 66px; height: 66px; margin: 0; border-radius: 13px; background: linear-gradient(160deg, #f26a50, #d9402a); box-shadow: inset 0 0 0 2px rgba(0,0,0,0.12), 0 2px 0 rgba(0,0,0,0.18); display: grid; place-items: center; }
+.stick .front-btn::after { content: "M5"; font: 900 24px "Arial Black", Arial, sans-serif; color: rgba(120, 20, 8, 0.55); transform: rotate(-90deg); }
+.stick .side-btn { left: auto; right: 22px; top: auto; bottom: -6px; width: 40px; height: 6px; border-radius: 0 0 4px 4px; background: #b82f1a; }
+.stick .cable { left: auto; right: -120px; bottom: auto; top: 50%; width: 120px; height: 14px; margin: -7px 0 0; border-radius: 7px; transform-origin: left; animation: swayh 4s ease-in-out infinite; }
+@keyframes swayh { 0%, 100% { transform: rotate(2deg); } 50% { transform: rotate(-2deg); } }
+.stickstage { height: 380px; }
+.stickstage::before { width: 380px; height: 380px; }
+.shotglass { right: 4%; bottom: 20px; }
+.mini { left: 20px; top: 34px; width: 92px; height: 46px; border-radius: 10px; }
+.mini .mscreen { left: 6px; right: auto; top: 6px; width: 54px; height: 34px; }
+.mini::after { content: ""; position: absolute; right: 7px; top: 12px; width: 22px; height: 22px; border-radius: 5px; background: #d9402a; }
+.mini .mside { left: auto; right: 24px; top: auto; bottom: -3px; width: 18px; height: 4px; border-radius: 0 0 2px 2px; }
+.mini.small { left: 4px; top: 40px; transform: scale(.75); transform-origin: left top; }
+.press .finger { left: 86px; top: 92px; width: 14px; height: 28px; border-radius: 8px; animation: pokey 2s ease-in-out infinite; }
+@keyframes pokey { 0%, 100% { transform: translateY(8px); } 40%, 60% { transform: translateY(-4px); } }
+.plug .laptop { left: 98px; top: 34px; width: 42px; height: 40px; }
+.plug .usb { left: 72px; top: 54px; width: 28px; }
+@media (max-width: 760px) { .stick .body { width: 280px; height: 150px; } .stick .screen { height: 118px; } .stick .cable { width: 60px; right: -60px; } .stickstage { height: 300px; } }
